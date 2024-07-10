@@ -101,15 +101,7 @@ function TodoList() {
         }
       })
       .then((data) => {
-        setList(
-          list.map((item) => {
-            if (item.id === taskIndex) {
-              item.label = updatedLabel;
-            }
-            return item;
-          })
-        );
-        getTasks();
+        setList(list.map((item) => (item.id === taskIndex ? data : item)));
       })
       .catch((error) => console.log(error));
   }
